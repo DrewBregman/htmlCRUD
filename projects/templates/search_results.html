@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+<html>
+
+{%block content%}
+<h1> Search Results </h1>
+
+<ul>
+    {% for project in project_list %}
+     <li>
+        Project: {{project.name}}, of {{project.department}} Department. <a href="/project/{{project.name}}/">View Project Details.</a> 
+     </li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for profile in profile_list %}
+     <li>
+        User: {{profile.firstName}} {{profile.lastName}}, {{profile.Department}}. Class of {{profile.gradYear}}. <a href="/profile/{{profile.id}}/">View User.</a> 
+     </li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for project in pdepartment_list %}
+    <h2> Projects in {{project.department}}</h2>
+     <li>
+        {{project.department}} Department presents {{project.name}}. <a href="/project/{{project.name}}/">View Project Details.</a> 
+     </li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for profile in udepartment_list %}
+    <h2>Users in {{profile.Department}} Department</2>
+     <li>
+        User: {{profile.firstName}} {{profile.lastName}}, {{profile.Department}}. Class of {{profile.gradYear}}. <a href="/profile/{{profile.id}}/">View User.</a> 
+     </li>
+    {% endfor %}
+</ul>
+{%endblock%}
+</html>
